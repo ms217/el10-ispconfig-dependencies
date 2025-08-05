@@ -115,6 +115,11 @@ export LDFLAGS="$LDFLAGS $(pkg-config --libs openssl11)"
 	-DOPENSSL_INCLUDE_DIR=/usr/include/openssl11 \
 	-DOPENSSL_LIBRARIES=/usr/lib64/openssl11 \
 %endif
+%if 0%{?rhel} > 9
+        -DOPENSSL_ROOT_DIR=/usr/include/openssl \
+        -DOPENSSL_INCLUDE_DIR=/usr/include/openssl \
+        -DOPENSSL_LIBRARIES=/usr/lib64/openssl \
+%endif
 %if 0%{?fedora} >= 36
         -DLINKER_NAME=/usr/bin/ld.bfd \
 %endif
