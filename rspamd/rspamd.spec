@@ -30,6 +30,9 @@ BuildRequires:    cmake
 BuildRequires:    libarchive-devel
 BuildRequires:    openssl-devel
 %endif
+%if 0%{?rhel} >= 8
+BuildRequires:    cmake
+%endif
 %if 0%{?rhel} == 9
 BuildRequires:    gcc-c++
 BuildRequires:    libarchive-devel
@@ -103,7 +106,7 @@ export LDFLAGS="$LDFLAGS $(pkg-config --libs openssl11)"
 %if 0%{?rhel} <= 7
 %{__cmake3} \
 %else
-cmake \
+%{__cmake} \
 %endif
         -DCMAKE_BUILD_TYPE="Release" \
         -DCMAKE_C_FLAGS_RELEASE="%{optflags}" \
