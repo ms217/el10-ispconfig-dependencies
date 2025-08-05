@@ -33,7 +33,7 @@ BuildRequires:    openssl-devel
 %if 0%{?rhel} >= 8
 BuildRequires:    cmake
 %endif
-%if 0%{?rhel} == 9
+%if 0%{?rhel} >= 9
 BuildRequires:    gcc-c++
 BuildRequires:    libarchive-devel
 BuildRequires:    openssl-devel
@@ -49,7 +49,6 @@ BuildRequires:    libsodium-devel
 BuildRequires:    libunwind-devel
 BuildRequires:    luajit-devel
 BuildRequires:    openblas-devel
-BuildRequires:    openssl-devel
 BuildRequires:    pcre2-devel
 BuildRequires:    ragel
 BuildRequires:    sqlite-devel
