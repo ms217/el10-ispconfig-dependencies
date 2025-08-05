@@ -69,7 +69,7 @@ lua.
 
 %prep
 %setup -q
-%patch -p0 -P1 -b .openssl35-build
+%patch -p1 -P0 -b .openssl35-build
 
 
 %build
