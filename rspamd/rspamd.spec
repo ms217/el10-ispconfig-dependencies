@@ -8,6 +8,8 @@ URL:              https://rspamd.com
 Source0:          https://github.com/rspamd/rspamd/archive/%{version}/%{name}-%{version}.tar.gz
 Source1:          %{name}.logrotate
 Source2:          80-rspamd.preset
+Patch0:           rspamd-3.12-openssl35-build.patch
+
 BuildRoot:        %{_tmppath}/%{name}-%{version}-%{release}
 %if 0%{?rhel} == 6
 BuildRequires:    cmake3
@@ -67,6 +69,7 @@ lua.
 
 %prep
 %setup -q
+%patch -p1 -P1 -b .openssl35-build
 
 
 %build

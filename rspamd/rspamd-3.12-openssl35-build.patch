@@ -1,0 +1,18 @@
+diff --git a/src/libserver/dkim.c b/src/libserver/dkim.c
+index 8b61d39a9..2f77dbefc 100644
+--- a/src/libserver/dkim.c
++++ b/src/libserver/dkim.c
+@@ -26,6 +26,13 @@
+ #include <openssl/rsa.h>
+ #include <openssl/engine.h>
+ 
++#ifdef HAVE_OPENSSL
++#include <openssl/opensslv.h>
++#if OPENSSL_VERSION_NUMBER >= 0x10100000L
++#include <openssl/err.h>
++#endif
++#endif
++
+ /* special DNS tokens */
+ #define DKIM_DNSKEYNAME "_domainkey"
+ 
