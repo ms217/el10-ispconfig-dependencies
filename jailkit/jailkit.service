@@ -1,0 +1,17 @@
+[Unit]
+Description=Jailkit logging service
+After=remote-fs.target
+
+[Service]
+Type=forking
+Restart=no
+TimeoutSec=5min
+IgnoreSIGPIPE=no
+KillMode=process
+GuessMainPID=no
+RemainAfterExit=yes
+PIDFile=/var/run/jk_socketd.pid
+ExecStart=/usr/sbin/jk_socketd -p /var/run/jk_socketd.pid
+
+[Install]
+WantedBy=multi-user.target
